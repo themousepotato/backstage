@@ -14,19 +14,19 @@
  * limitations under the License.
  */
 
-import React from 'react';
-import { render, cleanup } from '@testing-library/react';
-import { RegisterComponentPage } from './RegisterComponentPage';
-import { ThemeProvider } from '@material-ui/core';
-import { lightTheme } from '@backstage/theme';
 import {
-  errorApiRef,
   ApiProvider,
   ApiRegistry,
   createRouteRef,
+  errorApiRef,
 } from '@backstage/core';
 import { catalogApiRef } from '@backstage/plugin-catalog';
+import { lightTheme } from '@backstage/theme';
+import { ThemeProvider } from '@material-ui/core';
+import { render, screen } from '@testing-library/react';
+import React from 'react';
 import { MemoryRouter } from 'react-router-dom';
+import { RegisterComponentPage } from './RegisterComponentPage';
 
 const errorApi = { post: () => {} };
 
@@ -40,35 +40,31 @@ const catalogApi: jest.Mocked<typeof catalogApiRef.T> = {
   getEntityByName: jest.fn(),
 };
 
-const setup = () => ({
-  rendered: render(
-    <MemoryRouter>
-      <ApiProvider
-        apis={ApiRegistry.from([
-          [errorApiRef, errorApi],
-          [catalogApiRef, catalogApi],
-        ])}
-      >
-        <ThemeProvider theme={lightTheme}>
-          <RegisterComponentPage
-            catalogRouteRef={createRouteRef({
-              path: '/catalog',
-              title: 'Service Catalog',
-            })}
-          />
-        </ThemeProvider>
-      </ApiProvider>
-    </MemoryRouter>,
-  ),
-});
+const Wrapper = ({ children }: { children?: React.ReactNode }) => (
+  <MemoryRouter>
+    <ApiProvider
+      apis={ApiRegistry.from([
+        [errorApiRef, errorApi],
+        [catalogApiRef, catalogApi],
+      ])}
+    >
+      <ThemeProvider theme={lightTheme}>{children}</ThemeProvider>
+    </ApiProvider>
+  </MemoryRouter>
+);
 
 describe('RegisterComponentPage', () => {
-  afterEach(() => cleanup());
-
   it('should render', () => {
-    const { rendered } = setup();
-    expect(
-      rendered.getByText('Register existing component'),
-    ).toBeInTheDocument();
+    render(
+      <RegisterComponentPage
+        catalogRouteRef={createRouteRef({
+          path: '/catalog',
+          title: 'Service Catalog',
+        })}
+      />,
+      { wrapper: Wrapper },
+    );
+
+    expect(screen.getByText('Register existing component')).toBeInTheDocument();
   });
 });
