@@ -2,19 +2,33 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://backstage.io/blog</id>
     <title>Backstage Blog</title>
-    <updated>2020-09-30T06:00:00.000Z</updated>
+    <updated>2020-10-22T06:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://backstage.io/blog"/>
     <subtitle>The best place to stay up-to-date with the latest Backstage news and events.</subtitle>
     <logo>https://backstage.io/undefined</logo>
-    <rights>Copyright © 2020 Spotify AB</rights>
+    <rights>Copyright © 2020 Backstage Project Authors. All rights reserved. The Linux Foundation has registered trademarks and uses trademarks. For a list of trademarks of The Linux Foundation, please see our Trademark Usage page: https://www.linuxfoundation.org/trademark-usage</rights>
+    <entry>
+        <title type="html"><![CDATA[New Cost Insights plugin: The engineer’s solution to taming cloud costs]]></title>
+        <id>https://backstage.io/blog/2020/10/22/cost-insights-plugin.html</id>
+        <link href="https://backstage.io/blog/2020/10/22/cost-insights-plugin.html"/>
+        <updated>2020-10-22T06:00:00.000Z</updated>
+        <summary type="html"><![CDATA[<p>How did Spotify save millions on cloud costs within a matter of months?? We made cost optimization just another part of the daily development process. Our newly open sourced <a href="https://github.com/spotify/backstage/tree/master/plugins/cost-insights">Cost Insights plugin</a> makes a team’s cloud costs visible — and actionable — right inside Backstage. So engineers can see the impact of their cloud usage (down to a product and resource level) and make optimizations wherever and whenever it makes sense. By managing cloud costs from the ground up, you can make smarter decisions that let you continue to build and scale quickly, without wasting resources.</p>
+<iframe width="780" height="440" src="https://www.youtube.com/embed/YLAd5hdXR_Q" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<p>Are we turning engineers into accountants? Nope, we’re just letting engineers do what they do best, in the place that feels natural to them: inside Backstage.</p>
+]]></summary>
+        <author>
+            <name>Janisa Anandamohan</name>
+            <uri>https://twitter.com/janisa_a</uri>
+        </author>
+    </entry>
     <entry>
         <title type="html"><![CDATA[The Plugin Marketplace is open]]></title>
         <id>https://backstage.io/blog/2020/09/30/plugin-marketplace.html</id>
         <link href="https://backstage.io/blog/2020/09/30/plugin-marketplace.html"/>
         <updated>2020-09-30T06:00:00.000Z</updated>
         <summary type="html"><![CDATA[<p>Backstage has an ambitious goal: to provide engineers with the best possible developer experience.</p>
-<p>A fantastic developer experience leads to happy, creative, and productive engineers. Our belief is that engineers should not have to be experts in various infrastructure tools to be productive. Infrastructure should be abstracted away, so that developers can spend more cycles building and testing, quickly and safely. Backstage unifies all your infrastructure tooling, services, and documentation to create a streamlined development environment from end to end.</p>
+<p>A great developer experience leads to happy, creative, and productive engineers. Our belief is that engineers should not have to be experts in various infrastructure tools or disciplines (e.g., machine learning or backend) to be productive. Infrastructure should be abstracted away, so that developers can spend more cycles building and testing, quickly and safely. Backstage unifies all your infrastructure tooling, services, and documentation to create a streamlined development environment from end to end.</p>
 <p>Now you may be thinking, “Yeah, sure, that sounds nice and all, but how does Backstage actually abstract away infrastructure?” The short answer: <a href="https://backstage.io/plugins">plugins</a>.</p>
 <p><img src="https://backstage.io/img/cards-plugins.png" alt="plugins"></p>
 ]]></summary>
